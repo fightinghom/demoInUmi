@@ -9,7 +9,12 @@ const HomePage: React.FC = () => {
   return (
     <PageContainer ghost>
       <div className={styles.container}>
-        <Guide name={trim(name)} />
+        <Guide key={`guide`} name={trim(name)} />
+        {Array(50)
+          .fill('')
+          .map((item, index) => (
+            <Guide key={`guide${index}`} name={trim(name)} />
+          ))}
       </div>
     </PageContainer>
   );
